@@ -16,10 +16,17 @@ export class SpotifyService {
 
    getNewRelease():Observable<any>{
        const headers = new HttpHeaders({
-          'Authorization' : 'Bearer BQBWTdcgZq0bnOpu-a9x2ZgFPxEvuAJ0AMRW82Z_9So5uIPfKdkXlGJ-yYFpq18Vye6iWwL9i-v-mweWhAU'
+          'Authorization' : 'Bearer BQCd_8uXPZ11azAf_Ha-Rzh2LooI8sPCxNa6uL2WXwc2HYfVflCHtMCQ2I1Jtf-Ou9CKB85bDDTY-Jkh_-E'
        });
       return this.http.get(this.API_Spotify, { headers });
         
+   }
+
+   getArtista( termino:string ) {
+      const headers = new HttpHeaders({
+        'Authorization' : 'Bearer BQCd_8uXPZ11azAf_Ha-Rzh2LooI8sPCxNa6uL2WXwc2HYfVflCHtMCQ2I1Jtf-Ou9CKB85bDDTY-Jkh_-E'
+     });
+    return this.http.get(`https://api.spotify.com/v1/search?q=${ termino }&type=artist&limit=15`, { headers });
    }
 }
  
