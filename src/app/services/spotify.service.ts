@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +14,12 @@ export class SpotifyService {
     
    }
 
-   getNewRelease(){
+   getNewRelease():Observable<any>{
        const headers = new HttpHeaders({
-          'Authorization' : 'Bearer BQC6VtqK1UgeDlX-FgBAGljIxKI6IfciQBUlCp9_yLtTTa9_uvOsH2Uz41N_mR2jz1Y07mc2dlAgNH5juIA'
+          'Authorization' : 'Bearer BQBWTdcgZq0bnOpu-a9x2ZgFPxEvuAJ0AMRW82Z_9So5uIPfKdkXlGJ-yYFpq18Vye6iWwL9i-v-mweWhAU'
        });
-        this.http.get(this.API_Spotify, { headers }).subscribe( data => {
-            console.log(data);
-        });
+      return this.http.get(this.API_Spotify, { headers });
+        
    }
 }
  
